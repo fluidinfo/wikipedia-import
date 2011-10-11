@@ -11,6 +11,13 @@ pyflakes:
 
 clean:
 	find . -name '*~' -o -name '*.pyc' -print0 | xargs -0 -r rm
+	rm env -rf
+	rm _trial_temp -rf
 
 check:
 	trial wikipedia
+
+build:
+	virtualenv --no-site-packages env
+	. env/bin/activate
+	pip install -r requirements.txt

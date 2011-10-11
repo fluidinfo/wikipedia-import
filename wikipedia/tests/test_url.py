@@ -41,19 +41,6 @@ class LoadWikipediaTitlesTest(TestCase):
         loadWikipediaTitles(path, self.pageHandler)
         [page] = self.pageHandler.pages
         self.assertEqual('Anaconda', page.title)
-        self.assertEqual(None, page.redirectTitle)
-
-    def testLoadWikipediaTitlesWithRedirect(self):
-        """
-        L{loadWikipediaTitles} yields a L{WikipediaPage} instance with a
-        C{redirectTitle} set if the text for the page includes a C{#REDIRECT}
-        directive.
-        """
-        path = sibpath(__file__, 'redirect.xml')
-        loadWikipediaTitles(path, self.pageHandler)
-        [page] = self.pageHandler.pages
-        self.assertEqual('AccessibleComputing', page.title)
-        self.assertEqual('Computer accessibility', page.redirectTitle)
 
     def testLoadWikipediaTitlesClosesPageHandler(self):
         """
@@ -96,7 +83,7 @@ class WikipediaPageHandlerTest(TestCase):
             data = load(file)
         self.assertEqual(
             {'objects': [{'about': 'sample page',
-                          'values': {'wikipedia.com/title': 'Sample page'}}]},
+                          'values': {'wikipedia.org/title': 'Sample page'}}]},
             data)
 
     def testFlushBatches(self):

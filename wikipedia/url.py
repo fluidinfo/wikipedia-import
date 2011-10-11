@@ -7,13 +7,10 @@ class WikipediaPage(object):
     """Metadata about a Wikipedia page.
 
     @param title: The title of the article.
-    @param redirectTitle: Optionally, the title of the page to redirect to
-        when this page is visited.
     """
 
-    def __init__(self, title, redirectTitle=None):
+    def __init__(self, title):
         self.title = title
-        self.redirectTitle = redirectTitle
 
 
 def loadWikipediaTitles(path, pageHandler):
@@ -68,12 +65,8 @@ class WikipediaContentHandler(ContentHandler):
         if name == 'page':
             title = ''.join(self._currentPage['title']).strip()
             text = ''.join(self._currentPage['text'])
-            redirectTitle = None
-            if text.startswith('#REDIRECT'):
-                start = text.find('[[') + 2
-                end = text.find(']]')
-                redirectTitle = text[start:end]
-            self._pageHandler.handle(WikipediaPage(title, redirectTitle))
+            if not text.startswith('#REDIRECT'):
+                self._pageHandler.handle(WikipediaPage(title))
             self._currentPage = None
 
     def endDocument(self):
@@ -103,9 +96,7 @@ class WikipediaPageHandler(object):
         @param page: The L{WikipediaPage} instance to process.
         """
         data = {'about': page.title.lower(),
-                'values': {'wikipedia.com/title': page.title}}
-        if page.redirectTitle is not None:
-            data['values']['wikipedia.com/related'] = page.redirectTitle
+                'values': {'wikipedia.org/title': page.title}}
         self._pages.append(data)
         if len(self._pages) == self._batchSize:
             self._flush()
@@ -120,6 +111,6 @@ class WikipediaPageHandler(object):
         filename = self.filenameTemplate % self._currentBatch
         path = os.path.join(self._path, filename)
         with open(path, 'w') as file:
-            dump({'objects': self._pages}, file)
+            dump({'objects': self._pages}, file, indent=4)
         self._currentBatch += 1
         self._pages = []
