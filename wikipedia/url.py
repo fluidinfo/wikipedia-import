@@ -1,4 +1,5 @@
 from json import dump
+import logging
 import os
 from xml.sax import ContentHandler, parse
 
@@ -89,6 +90,7 @@ class WikipediaPageHandler(object):
         self._batchSize = batchSize or 10000
         self._currentBatch = 1
         self._pages = []
+        self._totalPages = 0
 
     def handle(self, page):
         """Convert a L{WikipediaPage} into a Fluidinfo object.
@@ -98,8 +100,11 @@ class WikipediaPageHandler(object):
         data = {'about': page.title.lower(),
                 'values': {'wikipedia.org/title': page.title}}
         self._pages.append(data)
+        self._totalPages += 1
         if len(self._pages) == self._batchSize:
             self._flush()
+        if not self._totalPages % 1000:
+            logging.info('Processed %d articles...' % self._totalPages)
 
     def close(self):
         """Finalize L{WikipediaPage} handling."""
