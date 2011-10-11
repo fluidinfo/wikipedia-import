@@ -1,0 +1,84 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.5/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.5/ http://www.mediawiki.org/xml/export-0.5.xsd" version="0.5" xml:lang="en">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <base>http://en.wikipedia.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.17wmf1</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Wikipedia</namespace>
+      <namespace key="5" case="first-letter">Wikipedia talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="100" case="first-letter">Portal</namespace>
+      <namespace key="101" case="first-letter">Portal talk</namespace>
+      <namespace key="108" case="first-letter">Book</namespace>
+      <namespace key="109" case="first-letter">Book talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Anaconda</title>
+    <id>809</id>
+    <revision>
+      <id>447034735</id>
+      <timestamp>2011-08-27T21:09:30Z</timestamp>
+      <contributor>
+        <username>Lifebonzza</username>
+        <id>2306814</id>
+      </contributor>
+      <comment>added category</comment>
+      <text xml:space="preserve">{{pp-semi|small=yes}}
+{{about|snakes}}
+[[File:Green-anaconda.jpg|thumb|right|240px|&quot;Anaconda&quot; is often used to refer only to the common anaconda, ''[[Eunectes murinus]]''.]]
+An '''anaconda''' is a large, non-venomous [[snake]] found in tropical [[South America]]. Although the name actually applies to a group of snakes, it is often used to refer only to one species in particular, the common or green anaconda, ''[[Eunectes murinus]]'', which is one of the largest snakes in the world.
+
+'''Anaconda''' may refer to:
+
+* Any member of the genus ''[[Eunectes]]'', a group of large, aquatic snakes found in South America.
+* ''[[Eunectes murinus]]'', a.k.a. the common anaconda, the largest species, found east of the Andes in Colombia, Venezuela, the Guianas, Ecuador, Peru, Bolivia, Brazil and on the island of Trinidad.
+* ''[[Eunectes notaeus]]'', a.k.a. the yellow anaconda, a smaller species found in eastern Bolivia, southern Brazil, Paraguay and northeastern Argentina.
+* ''[[Eunectes deschauenseei]]'', a.k.a. the dark-spotted anaconda, a rare species found in northeastern Brazil and coastal French Guiana.
+* ''[[Eunectes beniensis|E. beniensis]]'', a.k.a. the Bolivian anaconda, the most recently defined species found in the Departments of Beni and Pando in [[Bolivia]].
+* The [[giant anaconda]], a mythical snake of enormous proportions found in South America.
+* Any large snake that &quot;crushes&quot; its prey (see [[Constriction]]). Applied loosely.&lt;ref name=&quot;COED&quot;&gt;Oxford. 1991. The Compact Oxford English Dictionary. Second Edition. Clarendon Press, Oxford. ISBN 0-19-861258-3.&lt;/ref&gt;
+
+==Etymology==
+As per [[National Geographic]], the word ''anaconda'' comes from the [[Tamil language|Tamil]] word ''anaikolra'', which means ''elephant killer''&lt;ref&gt;http://news.nationalgeographic.com/news/2002/08/photogalleries/0802_snakes1.html&lt;/ref&gt;.
+
+The name was first used in the English language in 1768 by R. Edwin in a colorful description of a large snake found in Ceylon (now [[Sri Lanka]]), most likely a reticulated python, ''[[Python reticulatus]]''. The account, which explains how the snake crushes and devours tigers, is full of popular misconceptions, but was much read at the time and so gave rise to the myth of the Anaconda of Ceylon.&lt;ref name=&quot;TiO&quot;&gt;Boyle R. 2008. [http://sundaytimes.lk/080727/Plus/sundaytimesplus_07.html “The Anaconda of Ceylon”: Derivations and the myths] at [http://www.sundaytimes.lk/ Sunday Times Lanka]. Accessed 13 December 2008.&lt;/ref&gt;
+
+Various theories exist regarding the origin of the name itself. One suggests that it was derived from the [[Sinhalese language|Sinhala]] ''henakandaya''. However, this name is used to refer to the brown vine snake, ''[[Ahaetulla pulverulenta]]'', a slender arboreal species that grows to five feet  (152 cm) at most and feeds only on small vertebrates.&lt;ref name=&quot;TiO&quot;/&gt; Another theory by Yule and Burnell (1886) is based on an entry in the Catalogue of Indian Serpents from the Leyden Museum (Ray, 1693) that reads: ''Anacondaia Zeylonensibus, id est Bubalorum aliorumque jumentorum membra conterens'', meaning &quot;the anacondaia of the Ceylonese, i.e. he that crushes the limbs of buffaloes and yoke beasts.&quot; Without a clear Sinhala connection, they suggest one from the [[Tamil language]] instead: ''anai-kondra'' (''anaik-konda''), meaning &quot;which killed an elephant.”&lt;ref name=&quot;TiO&quot;/&gt;&lt;ref name=&quot;COED&quot;/&gt;
+
+==References==
+{{Wiktionary}}
+{{Reflist}}
+
+==Further reading==
+&lt;div class=&quot;references-small&quot;&gt;
+* Ray J. 1693. Synopsis methodica animalium quadrupedum et serpentini generis. Vulga
+rium natas characteristicas, rariorum descriptiones integras exhibens: cum historiis &amp; observationibus anatomicis perquam curiosis. Præmittuntur nonnulla de animalium in genere, sensu, generatione, divisione, &amp;c. - pp. [1-14], 1-336, [1-9]. Londini. (Smith &amp; Walford).
+* Yule H, Burnell AC. 1886. Hobson-Jobson: A Glossary of Colloquial Anglo-Indian Words and Phrases, and of Kindred terms, Etymological, Historical, Geographical, and Discursive. London: J. Murray. pp. 133–134. (reprinted in 1903 by W. Crooke).
+&lt;/div&gt;
+
+{{SIA|snakes}}
+
+&lt;!-- This is a Set Index Article (SIA) about snakes. If other, non-snake topics with this name exist, please, do not turn this into a disambiguation page, but create a separate disambiguation page instead. --&gt;
+
+[[Category:Boinae by common name]]
+[[Category:Tamil words and phrases]]</text>
+    </revision>
+  </page>
+</mediawiki>
