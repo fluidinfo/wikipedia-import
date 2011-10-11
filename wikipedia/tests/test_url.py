@@ -42,6 +42,12 @@ class LoadWikipediaTitlesTest(TestCase):
         [page] = self.pageHandler.pages
         self.assertEqual('Anaconda', page.title)
 
+    def testLoadWikipediaTitlesWithRedirect(self):
+        """L{loadWikipediaTitles} ignores pages that are redirects."""
+        path = sibpath(__file__, 'redirect.xml')
+        loadWikipediaTitles(path, self.pageHandler)
+        self.assertEqual([], self.pageHandler.pages)
+
     def testLoadWikipediaTitlesClosesPageHandler(self):
         """
         The C{close} method on the page handler will be called when
