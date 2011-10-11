@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+from logging import basicConfig, INFO
 import sys
 
 from wikipedia.url import WikipediaPageHandler, loadWikipediaTitles
@@ -11,6 +12,7 @@ def main(inputFilename, outputPath):
     @param inputFilename: The path to the Wikipedia XML file to load data from.
     @param outputPath: The path to write JSON files to.
     """
+    basicConfig(format='%(asctime)s %(levelname)8s  %(message)s', level=INFO)
     pageHandler = WikipediaPageHandler(outputPath)
     loadWikipediaTitles(inputFilename, pageHandler)
 
