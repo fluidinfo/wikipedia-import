@@ -29,6 +29,9 @@ def loadWikipediaTitles(path, pageHandler):
 class WikipediaContentHandler(ContentHandler):
     """A SAX parsing handler for a Wikipedia XML document."""
 
+    ignoredPrefixes = ['file', 'category', 'wikipedia', 'template', 'portal',
+                       'mediawiki']
+
     def __init__(self, pageHandler):
         self._currentElement = None
         self._currentPage = None
@@ -65,6 +68,11 @@ class WikipediaContentHandler(ContentHandler):
         """
         if name == 'page':
             title = ''.join(self._currentPage['title']).strip()
+            loweredTitle = title.lower()
+            for prefix in self.ignoredPrefixes:
+                if loweredTitle.startswith('%s:' % prefix):
+                    self._currentPage = None
+                    return
             text = ''.join(self._currentPage['text'])
             if not text.startswith('#REDIRECT'):
                 self._pageHandler.handle(WikipediaPage(title))

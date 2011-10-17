@@ -42,9 +42,15 @@ class LoadWikipediaTitlesTest(TestCase):
         [page] = self.pageHandler.pages
         self.assertEqual('Anaconda', page.title)
 
-    def testLoadWikipediaTitlesWithRedirect(self):
+    def testLoadWikipediaTitlesIgnoresRedirectPages(self):
         """L{loadWikipediaTitles} ignores pages that are redirects."""
         path = sibpath(__file__, 'redirect.xml')
+        loadWikipediaTitles(path, self.pageHandler)
+        self.assertEqual([], self.pageHandler.pages)
+
+    def testLoadWikipediaTitlesIgnoresIgnorablePages(self):
+        """L{loadWikipediaTitles} ignores category pages."""
+        path = sibpath(__file__, 'ignored.xml')
         loadWikipediaTitles(path, self.pageHandler)
         self.assertEqual([], self.pageHandler.pages)
 
