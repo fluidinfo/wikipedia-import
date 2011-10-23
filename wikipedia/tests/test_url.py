@@ -26,6 +26,26 @@ class SampleWikipedaPageHandler(object):
         self.closed = True
 
 
+class WikipediaPageTest(TestCase):
+
+    def testURLConvertsSpacesToUnderscores(self):
+        """
+        Spaces in the page title are converted to underscores when the URL is
+        generated.
+        """
+        page = WikipediaPage('Sample page')
+        self.assertEqual('http://en.wikipedia.org/wiki/Sample_page', page.url)
+
+    def testURLEncodesUnicodeCharactersAsUTF8(self):
+        """
+        Unicode characters are converted to UTF-8 before being percent encoded
+        for inclusion in the URL.
+        """
+        page = WikipediaPage(u'The letter \N{HIRAGANA LETTER A}')
+        self.assertEqual('http://en.wikipedia.org/wiki/The_letter_%E3%81%82',
+                         page.url)
+
+
 class LoadWikipediaTitlesTest(TestCase):
 
     def setUp(self):
@@ -49,8 +69,16 @@ class LoadWikipediaTitlesTest(TestCase):
         self.assertEqual([], self.pageHandler.pages)
 
     def testLoadWikipediaTitlesIgnoresIgnorablePages(self):
-        """L{loadWikipediaTitles} ignores category pages."""
+        """
+        L{loadWikipediaTitles} ignores category, file, portal, etc. pages.
+        """
         path = sibpath(__file__, 'ignored.xml')
+        loadWikipediaTitles(path, self.pageHandler)
+        self.assertEqual([], self.pageHandler.pages)
+
+    def testLoadWikipediaTitlesIgnoresDisambiguationPages(self):
+        """L{loadWikipediaTitles} ignores disambiguation pages."""
+        path = sibpath(__file__, 'disambiguation.xml')
         loadWikipediaTitles(path, self.pageHandler)
         self.assertEqual([], self.pageHandler.pages)
 
@@ -93,9 +121,10 @@ class WikipediaPageHandlerTest(TestCase):
         path = os.path.join(self.outputPath, 'wikipedia-titles-00001.json')
         with open(path, 'r') as file:
             data = load(file)
+        url = 'http://en.wikipedia.org/wiki/Sample_page'
         self.assertEqual(
             {'objects': [{'about': 'sample page',
-                          'values': {'wikipedia.org/title': 'Sample page'}}]},
+                          'values': {'en.wikipedia.org/url': url}}]},
             data)
 
     def testFlushBatches(self):

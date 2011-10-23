@@ -1,6 +1,7 @@
 from json import dump
 import logging
 import os
+from urllib import quote
 from xml.sax import ContentHandler, parse
 
 
@@ -12,6 +13,11 @@ class WikipediaPage(object):
 
     def __init__(self, title):
         self.title = title
+
+    @property
+    def url(self):
+        title = quote(self.title.encode('utf-8').replace(' ', '_'), safe='')
+        return 'http://en.wikipedia.org/wiki/%s' % title
 
 
 def loadWikipediaTitles(path, pageHandler):
@@ -70,7 +76,8 @@ class WikipediaContentHandler(ContentHandler):
             title = ''.join(self._currentPage['title']).strip()
             loweredTitle = title.lower()
             for prefix in self.ignoredPrefixes:
-                if loweredTitle.startswith('%s:' % prefix):
+                if (loweredTitle.startswith('%s:' % prefix)
+                    or loweredTitle.endswith('(disambiguation)')):
                     self._currentPage = None
                     return
             text = ''.join(self._currentPage['text'])
@@ -106,7 +113,7 @@ class WikipediaPageHandler(object):
         @param page: The L{WikipediaPage} instance to process.
         """
         data = {'about': page.title.lower(),
-                'values': {'wikipedia.org/title': page.title}}
+                'values': {'en.wikipedia.org/url': page.url}}
         self._pages.append(data)
         self._totalPages += 1
         if len(self._pages) == self._batchSize:
